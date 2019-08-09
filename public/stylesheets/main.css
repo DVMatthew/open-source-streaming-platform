@@ -1,0 +1,41 @@
+@font-face {
+    font-family: Gothib;
+    src: url(/fonts/yugothib.ttf);
+}
+
+@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap');
+
+* {
+    font-family: 'Nanum Gothic', sans-serif;
+}
+
+body {
+    background-color: #E8E8E8;
+}
+
+.navbar {
+    background-color: #D8D8D8;
+    border-bottom: 1px solid #333;
+}
+
+#reg-form {
+    margin-top: 10px;
+}
+
+input[type=username] {
+    border: none;
+    border-radius: 0px;
+    border-bottom: 1px solid #333;
+}
+
+input[type=password] {
+    border: none;
+    border-radius: 0px;
+    border-bottom: 1px solid #333;
+}
+
+input[type=text] {
+    border: none;
+    border-radius: 0px;
+    border-bottom: 1px solid #333;
+}
