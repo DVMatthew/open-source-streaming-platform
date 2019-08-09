@@ -27,9 +27,13 @@ open it up to the public.
 ## Check List
 
 [X] Basic layout
+
 [X] Login System and User registering
+
 [X] Logout System
+
 [] User account personalization
+
 [] User streaming page
 
 ## Contributing
