@@ -1,9 +1,11 @@
 # OSSP (Open Source Streaming Platform)
+
 OSSP is a open source project for a streaming platform I am making. This is manily a side hobby for me but I thought I might as well
 open it up to the public.
 
-## Dependencies 
-``` json
+## Dependencies
+
+```json
  "dependencies": {
     "axios": "^0.19.0",
     "body-parser": "^1.19.0",
@@ -22,10 +24,20 @@ open it up to the public.
   }
 ```
 
+## Check List
+
+[X] Basic layout
+[X] Login System and User registering
+[X] Logout System
+[] User account personalization
+[] User streaming page
+
 ## Contributing
+
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 Please make sure to update tests as appropriate.
 
 ## License
+
 [MIT](https://choosealicense.com/licenses/mit/)
