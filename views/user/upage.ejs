@@ -1,0 +1,67 @@
+<% include ../partials/header %>
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/stylesheets/main.css">
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+</head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"
+    integrity="sha256-yr4fRk/GU1ehYJPAs8P4JlTgu0Hdsp4ZKrx8bDEDC3I=" crossorigin="anonymous"></script>
+<script>
+    var socket = io("localhost:5080");
+    $(function () {
+        let username = $('#username').text();
+
+        var socket = io();
+        $('form').submit(function (e) {
+            e.preventDefault(); // prevents page reloading
+            socket.emit("set user", username, function (data) {
+                if (data) {
+                    console.log("Data");
+                } else {
+                    error.html("Username is taken");
+                }
+            });
+            socket.emit('chat message', $('#m').val());
+            $('#m').val('');
+            return false;
+        });
+        socket.on('chat message', function (data) {
+            $('#messages').append($('<li>').append('<strong>' + data.user + '</strong>: ' + data.msg + '<br>'));
+        });
+        $('iframe').load(function () {
+            $('iframe').contents().find("head")
+                .append($("<style type='text/css'>  #video_container{max-width:1280px;}  </style>"));
+        });
+    });
+</script>
+
+<body>
+
+    <div class="row">
+        <div class="col-sm" id="video-view">
+            <iframe width="560" height="315" src="//192.168.1.108:5080/LiveApp/play.html?name=536846418540913522954904"
+                frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="col-sm">
+            <div id="sidebar-wrapper">
+                <ul class="sidebar-nav" id="messages">
+
+                </ul>
+                <form id="m-form" action="" style="position: absolute; right: 0; bottom: 0; z-index: 100;">
+                    <input id="m" autocomplete="off" placeholder="Type something to the chat..." /><button
+                        id="m-btn">Send</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+
+
+</html>
